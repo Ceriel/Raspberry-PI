@@ -1,0 +1,27 @@
+﻿Zie ook Dutch Smart Meter Requirements v2.2 final P3.pdf
+
+Message 					Explanation
+/ISk5\2ME382-1003
+
+0-0:96.1.1(4B413650303035313332363238353133) 	brand and type of the meter (this is a ‘ISKRA ME382′)
+1-0:1.8.1(00357.909*kWh) 			+T1, taken off-peak power (357 kWh)
+1-0:1.8.2(00253.970*kWh) 			+T2, taken peak power (253 kWh)
+1-0:2.8.1(00000.000*kWh) 			-T1, returned off-peak power (0 kWh)
+1-0:2.8.2(00000.000*kWh) 			-T2, returned peak power (0 kWh)
+0-0:96.14.0(0001) 				actual rate (1=off-peak power, 0=peak power)
+1-0:1.7.0(0000.55*kW) 				current power consumption (550 Watt)
+1-0:2.7.0(0000.00*kW) 				current return delivery (0 Watt)
+0-0:17.0.0(0999.00*kW) 				maximum current/phase
+0-0:96.3.10(1) 					switch position
+0-0:96.13.1() 					numeric message
+0-0:96.13.0() 					text message
+
+
+0-1:24.1.0(3)
+0-1:96.1.0(3238313031353431303036393737343132)
+0-1:24.3.0(141223220000)(00)(60)(1)(0-1:24.2.1)(m3)
+(02690.962)
+0-1:24.4.0(1)
+
+
+! 	terminator
