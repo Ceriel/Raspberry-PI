@@ -1,0 +1,23 @@
+sudo apt-get install cu minicom
+sudo apt-get update
+sudo apt-get upgrade
+
+
+	
+cu -l /dev/ttyUSB0 -s 9600 --parity=none
+
+Iskra ME382 
+Reversed serial?
+FTDI > TTL
+
+ttl-232r kabel
+De TTL232R is een USB naar serieel TTL converter kabel met de FT232RQ chip.
+
+
+Sweex PL2303 
+
+PL-2303 XA / HXA
+
+Protocollen:
+
+dsmr 3 en dsmr 4
