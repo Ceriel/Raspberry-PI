@@ -1,5 +1,6 @@
-TL-WN725N v2.0
+Install TL-WN725N module:
 
+TL-WN725N v2.0
 
 wget gordon.d4rc.net/8188eu_3.12.28.zip
 
@@ -14,3 +15,27 @@ sudo insmod /lib/modules/3.12.28+/kernel/drivers/net/wireless/8188eu.ko
 sudo depmod -a
 
 sudo reboot
+
+http://weworkweplay.com/play/rebooting-the-raspberry-pi-when-it-loses-wireless-connection-wifi/
+
+Check wifi connection every 5 minutes by pinging 192.168.1.1 (gateway). If no response, reset wifi.
+
+
+/usr/local/bin/checkwifi.sh
+
+ping -c4 192.168.1.1 > /dev/null
+
+if [ $? != 0 ]
+then
+  echo "No network connection, restarting wlan0"
+  /sbin/ifdown 'wlan0'
+  sleep 5
+  /sbin/ifup --force 'wlan0'
+fi
+
+
+crontab -e
+
+add:
+
+*/5 * * * * /usr/bin/sudo -H /usr/local/bin/checkwifi.sh >> /dev/null 2>&1
