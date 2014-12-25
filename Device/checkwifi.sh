@@ -1,4 +1,6 @@
-ping -c4 192.168.1.1 > /dev/null
+#!/bin/sh
+ip=$(ip route|awk '/default/ {print $3}')
+ping -c4 ip > /dev/null
 
 if [ $? != 0 ]
 then

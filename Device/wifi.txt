@@ -18,8 +18,14 @@ sudo reboot
 
 http://weworkweplay.com/play/rebooting-the-raspberry-pi-when-it-loses-wireless-connection-wifi/
 
-Check wifi connection every 5 minutes by pinging 192.168.1.1 (gateway). If no response, reset wifi.
+Check wifi connection every 5 minutes by pinging 192.168.1.1 (gateway). If no response, reset wifi. $? is the exit value of the ping command:
+0 succes
+1 no reply
+2 others
 
+Get gateway ip:
+
+ip route|awk '/default/ {print $3}'
 
 /usr/local/bin/checkwifi.sh
 
@@ -39,3 +45,5 @@ crontab -e
 add:
 
 */5 * * * * /usr/bin/sudo -H /usr/local/bin/checkwifi.sh >> /dev/null 2>&1
+
+check cron by reading /var/log/syslog  tail -f syslog
